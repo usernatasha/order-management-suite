@@ -1,0 +1,58 @@
+<div class="main-container">
+    <div class="flex-half">
+        <h3>Purchase Orders</h3>
+        <kendo-grid
+        [data]="gridView"
+        [pageSize]="pageSize"
+        [skip]="skip"
+        [pageable]="true"
+        [sortable]="true"
+        [resizable]="true"
+        (pageChange)="pageChange($event)"
+        (cellClick)="onRowClick($event.dataItem)"
+        >
+            <!-- Columns -->
+            <kendo-grid-column field="poId" title="PO ID">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ dataItem.poId }}
+                    <div class="po-alerts" *ngIf="dataItem.poAlerts?.length">
+                    <app-shared-chip [items]="dataItem.poAlerts" type="alert"></app-shared-chip>
+                    </div>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="poDate" title="Date">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ dataItem.poDate | date }}
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="status" title="Status"> </kendo-grid-column>
+
+            <kendo-grid-column title="Tags">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <div *ngIf="dataItem.poTags?.length">
+                    <app-shared-chip [items]="dataItem.poTags" type="tag"></app-shared-chip>
+                    </div>
+                </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-column field="totalValue" title="Total">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    {{ dataItem.totalValue | currency }}
+                </ng-template>
+            </kendo-grid-column>
+        </kendo-grid>
+    </div>
+    <div class="flex-half">
+        <div>
+            <p>Shipment Details for {{ selectedPO.poId }}</p>
+            <app-shipment 
+            (contextChange)="onContextChange($event)"></app-shipment>
+        </div>
+        <div>
+            <p>Order Lines</p>
+            <app-order-lines [lines]="filteredLines"></app-order-lines>
+        </div>
+    </div>
+</div>

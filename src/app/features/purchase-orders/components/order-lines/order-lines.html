@@ -1,0 +1,15 @@
+<kendo-grid
+  [data]="gridView"
+  [pageSize]="pageSize"
+  [skip]="skip"
+  [pageable]="true"
+  [sortable]="true"
+  [resizable]="true"
+  (pageChange)="pageChange($event)"
+>
+  <!-- Columns --> 
+  <kendo-grid-column field="itemSku" title="SKU"></kendo-grid-column>
+  <kendo-grid-column field="description" title="Description"></kendo-grid-column>
+  <kendo-grid-column field="quantity" title="Qty"></kendo-grid-column>
+  <kendo-grid-column field="price" title="Price" format="{0:c}"></kendo-grid-column>
+</kendo-grid>

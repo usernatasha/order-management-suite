@@ -1,0 +1,27 @@
+@for (item of shipments; track item; let i = $index) {
+    <kendo-expansionpanel
+    [expanded]="false"
+    (action)="onAction(item)"
+    [ngClass]="{'expanded-panel': item.expanded}"
+    >
+        <ng-template kendoExpansionPanelTitleDirective>
+            <div>
+                <span>Shipment Id: {{ item.shipmentId }} </span>
+                <div *ngIf="item.shipmentAlerts?.length">
+                    <app-shared-chip [items]="item.shipmentAlerts" type="alert"></app-shared-chip>
+                </div>
+            </div>
+        </ng-template>
+        <div>
+            <div>
+                <p>LoadPlan: {{ item.loadPlan }}</p>
+                <p>Status: {{item.status}}</p>
+                <h3>Shipment Instances:</h3>
+                <app-shipment-instance
+                    [instance]="item.shipmentInstances"
+                    (contextChange)="contextChange.emit($event)">
+                </app-shipment-instance>
+            </div>
+        </div>
+    </kendo-expansionpanel>
+}

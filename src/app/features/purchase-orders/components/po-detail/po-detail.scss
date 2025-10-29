@@ -1,0 +1,34 @@
+:host {
+  .main-container {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .flex-half {
+    flex: 1 1 50%;
+    min-width: 400px;
+    box-sizing: border-box;
+  }
+
+  .po-alerts kendo-chip {
+    margin: 0.25rem;
+  }
+
+  kendo-grid {
+    width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      flex-wrap: wrap;
+    }
+
+    .flex-half {
+      flex: 1 1 100%;
+    }
+  }
+  ::ng-deep .k-grid td.k-focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

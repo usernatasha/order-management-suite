@@ -1,0 +1,36 @@
+<kendo-grid 
+    [data]="instance"
+    (cellClick)="onRowClick($event.dataItem)"
+>
+    <kendo-grid-column title="Carrier">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.trackingDetail.carrier }}
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column title="Tracking Number">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.trackingDetail.trackingNumber }}
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column title="Last Update">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            {{ dataItem.trackingDetail.lastUpdated | date }}
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column title="Status">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <p>{{dataItem.status}}</p> 
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column title="Alerts">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <div *ngIf="dataItem.instanceAlerts?.length">
+            <app-shared-chip [items]="dataItem.instanceAlerts" type="alert"></app-shared-chip>
+            </div>
+        </ng-template>
+    </kendo-grid-column>
+</kendo-grid>
