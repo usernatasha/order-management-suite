@@ -14,9 +14,9 @@
         </ng-template>
         <div>
             <div>
-                <p>LoadPlan: {{ item.loadPlan }}</p>
+                <p>Load Plan: {{ item.loadPlan }}</p>
                 <p>Status: {{item.status}}</p>
-                <h3>Shipment Instances:</h3>
+                <strong>Shipment Instances:</strong>
                 <app-shipment-instance
                     [instance]="item.shipmentInstances"
                     (contextChange)="contextChange.emit($event)">
