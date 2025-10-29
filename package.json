@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:order-management-suite": "node dist/order-management-suite/server/server.mjs"
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
@@ -29,9 +28,7 @@
     "@angular/forms": "^20.3.0",
     "@angular/localize": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
-    "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
-    "@angular/ssr": "^20.3.7",
     "@progress/kendo-angular-buttons": "20.1.1",
     "@progress/kendo-angular-common": "20.1.1",
     "@progress/kendo-angular-conversational-ui": "20.1.1",
