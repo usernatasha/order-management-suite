@@ -1,8 +1,8 @@
 Order Management Suite - Technical Documentation
-1. Architecture Overview
+1.Architecture Overview
 The Order Management Suite is an Angular-based application designed to view purchase orders, shipments details and list of items ordered.
 
-2. Core Data Models
+2.Core Data Models
 PurchaseOrderModel: Root entity containing order details, lines, and shipments
 OrderLineModel: Individual line items within a purchase order
 ShipmentModel: Shipment information including status and instances
@@ -11,8 +11,7 @@ OrderAlert: Alert system for various entities
 OrderTag: Key-value pairs for purchase order metadata
 TrackingDetail: Carrier and tracking information
 
-3. Component Structure
-
+3.Component Structure
 app/
 ├── core/
 │   ├── models/
@@ -29,42 +28,42 @@ app/
     ├── data.service.ts         # Main data retrieval service
     └── po-selection.service.ts  # Service to manage selected PO and pass it between components
 
-4.Key Features: 
-Purchase Order Table
+4.Key Features
+Purchase Order Table:
 List all purchase orders 
 Displays key information like metadata tags, alerts, status 
 
-Shipment Details and Instance Tracking 
+Shipment Details and Instance Tracking:
 Displays shipment details like alerts , status , load plan for various shipments for a particular order
 Provides tracking information for each instance within the shipment
 
-OrderLines
+OrderLines:
 Displays the order line items based on the entire PO selected or a particular shipment or individual instance
 
 5.Data Services
-DataService
+DataService:
 Primary service for API interactions
 Handles data fetching and aggregation
 Key methods:
 getPurchaseOrders(): Retrieves basic PO list
 getPurchaseOrderDetail(): Fetches comprehensive PO data with related entities
 
-PoSelectionService
+PoSelectionService:
 Manages application state for selected purchase order
 Implements Observable pattern using BehaviorSubject
 Provides:
 selectedPO$: Observable for current selection
 updateSelectedPO(): Method to update selection
 
-6.Data Exchange: 
-Between Purchase orders and shipments data is exchanged via the PoSelectionService
+6.Data Exchange
+Between Purchase orders and shipments, data is exchanged via the PoSelectionService
 Shipment instance recieves its data as an input from the Shipment component
 Order Lines recieves its data as an input from the PO detail component based on the output that is provided by the PO / Shipment/ Shipment instance component when switching context
 
-8.UI library 
+7.UI library 
 Kendo is used to give a consistent and responsive layout to the application. Various components like grids, chips, expansion panel and themes are used.
 
-
-7.Hosting: 
+8.Hosting
 Host the app using Netlify and added netlify.toml to help with build creation and redirect paths
+
 

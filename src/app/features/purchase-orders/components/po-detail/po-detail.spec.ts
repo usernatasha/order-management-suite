@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PoDetail } from './po-detail';
-
+import { DataService } from '../../../../service/data.service';
 describe('PoDetail', () => {
   let component: PoDetail;
   let fixture: ComponentFixture<PoDetail>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PoDetail]
+      imports: [PoDetail],
+      providers: [DataService]
     })
     .compileComponents();
 

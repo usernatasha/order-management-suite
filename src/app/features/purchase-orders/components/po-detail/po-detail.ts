@@ -11,7 +11,7 @@ import { SharedChip } from '../../../../core/common/shared-chip/shared-chip';
 @Component({
   selector: 'app-po-detail',
   standalone: true,
-  imports: [CommonModule, KENDO_GRID, GridModule, Shipment, OrderLines, SharedChip ],
+  imports: [CommonModule, KENDO_GRID, GridModule, Shipment, OrderLines, SharedChip],
   templateUrl: './po-detail.html',
   styleUrls: ['./po-detail.scss'],
 })
